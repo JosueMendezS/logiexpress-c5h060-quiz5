@@ -1,2 +1,20 @@
+# Compilación / build
+/target/
+*.class
 
-src/main/resources/application.properties
+# Configuración local del IDE
+.idea/
+*.iml
+.settings/
+.project
+.classpath
+.vscode/
+
+# Archivos de configuración con secretos
+application-secrets.properties
+application-local.properties
+.env
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
