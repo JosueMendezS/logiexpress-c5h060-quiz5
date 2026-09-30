@@ -1,0 +1,43 @@
+<h2>Paquetes</h2>
+<button (click)="cerrarSesion()">Cerrar sesión</button>
+
+@if (cargando()) {
+  <p>Cargando...</p>
+} @else {
+  <table>
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Descripción</th>
+        <th>Peso (kg)</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (paquete of paquetes(); track paquete.id) {
+        <tr>
+          <td>{{ paquete.codigoRastreo }}</td>
+          <td>{{ paquete.descripcion }}</td>
+          <td>{{ paquete.pesoKg }}</td>
+          <td>
+            @switch (paquete.estado) {
+              @case ('REGISTRADO') {
+                <span>Registrado</span>
+              }
+              @case ('EN_TRANSITO') {
+                <span>En tránsito</span>
+              }
+              @case ('ENTREGADO') {
+                <span>Entregado</span>
+              }
+            }
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4">No hay paquetes registrados</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

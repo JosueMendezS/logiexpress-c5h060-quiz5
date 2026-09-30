@@ -48,13 +48,13 @@ public class PaqueteController {
     }
 
     @GetMapping
-    @Operation(summary = "Listar paquetes por estado con paginacion")
+    @Operation(summary = "Listar paquetes con paginacion, opcionalmente por estado")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Pagina de paquetes"),
             @ApiResponse(responseCode = "401", description = "No autenticado"),
             @ApiResponse(responseCode = "403", description = "Sin permisos")
     })
-    public ResponseEntity<Page<PaqueteResponseDto>> listarPorEstado(@RequestParam EstadoPaquete estado,
+    public ResponseEntity<Page<PaqueteResponseDto>> listarPorEstado(@RequestParam(required = false) EstadoPaquete estado,
             @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
         Page<PaqueteResponseDto> resultado = paqueteService.buscarPorEstado(estado, PageRequest.of(page, size))
                 .map(PaqueteResponseDto::desdeEntidad);

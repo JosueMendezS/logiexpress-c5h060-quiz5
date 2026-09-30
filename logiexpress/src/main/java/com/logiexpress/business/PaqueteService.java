@@ -53,6 +53,9 @@ public class PaqueteService {
 
     @Transactional(readOnly = true)
     public Page<Paquete> buscarPorEstado(EstadoPaquete estado, Pageable pageable) {
+        if (estado == null) {
+            return paqueteRepository.findAll(pageable);
+        }
         return paqueteRepository.findByEstado(estado, pageable);
     }
 

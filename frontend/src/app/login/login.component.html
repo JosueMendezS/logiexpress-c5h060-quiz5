@@ -1,0 +1,13 @@
+<h2>LogiExpress - Iniciar sesión</h2>
+
+<div>
+  <input [(ngModel)]="username" placeholder="Usuario" />
+</div>
+<div>
+  <input [(ngModel)]="password" type="password" placeholder="Contraseña" />
+</div>
+<button (click)="iniciarSesion()">Ingresar</button>
+
+@if (error()) {
+  <p>Usuario o contraseña incorrectos</p>
+}
