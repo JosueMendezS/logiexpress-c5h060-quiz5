@@ -1,20 +1,16 @@
-# Compilación / build
-/target/
+target/
 *.class
-
-# Configuración local del IDE
 .idea/
 *.iml
 .settings/
 .project
 .classpath
 .vscode/
-
-# Archivos de configuración con secretos
 application-secrets.properties
 application-local.properties
 .env
-
-# Sistema operativo
+*.pem
+*.key
+*.jks
 .DS_Store
 Thumbs.db
