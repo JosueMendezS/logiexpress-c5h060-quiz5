@@ -1,4 +1,4 @@
-package cr.ac.ucr.paraiso.ie.c5h060.logiexpress.domain;
+package com.logiexpress.domain;
 
 import jakarta.persistence.*;
 
@@ -23,7 +23,7 @@ public class Paquete {
     @Column(nullable = false, length = 20)
     private EstadoPaquete estado;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 

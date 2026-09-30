@@ -1,4 +1,4 @@
-package cr.ac.ucr.paraiso.ie.c5h060.logiexpress.dto;
+package com.logiexpress.controller;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

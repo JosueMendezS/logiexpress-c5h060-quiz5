@@ -1,6 +1,6 @@
-package cr.ac.ucr.paraiso.ie.c5h060.logiexpress.data;
+package com.logiexpress.data;
 
-import cr.ac.ucr.paraiso.ie.c5h060.logiexpress.domain.Cliente;
+import com.logiexpress.domain.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

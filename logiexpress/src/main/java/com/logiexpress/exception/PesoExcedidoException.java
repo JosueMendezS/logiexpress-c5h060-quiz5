@@ -1,4 +1,4 @@
-package cr.ac.ucr.paraiso.ie.c5h060.logiexpress.exception;
+package com.logiexpress.exception;
 
 public class PesoExcedidoException extends RuntimeException {
 

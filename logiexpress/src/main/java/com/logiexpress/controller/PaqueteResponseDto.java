@@ -1,7 +1,7 @@
-package cr.ac.ucr.paraiso.ie.c5h060.logiexpress.dto;
+package com.logiexpress.controller;
 
-import cr.ac.ucr.paraiso.ie.c5h060.logiexpress.domain.EstadoPaquete;
-import cr.ac.ucr.paraiso.ie.c5h060.logiexpress.domain.Paquete;
+import com.logiexpress.domain.EstadoPaquete;
+import com.logiexpress.domain.Paquete;
 
 public class PaqueteResponseDto {
 

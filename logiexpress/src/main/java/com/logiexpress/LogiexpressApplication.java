@@ -1,4 +1,4 @@
-package cr.ac.ucr.paraiso.ie.c5h060.logiexpress;
+package com.logiexpress;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

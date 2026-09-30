@@ -1,12 +1,12 @@
-package cr.ac.ucr.paraiso.ie.c5h060.logiexpress.business;
+package com.logiexpress.business;
 
-import cr.ac.ucr.paraiso.ie.c5h060.logiexpress.data.ClienteRepository;
-import cr.ac.ucr.paraiso.ie.c5h060.logiexpress.data.PaqueteRepository;
-import cr.ac.ucr.paraiso.ie.c5h060.logiexpress.domain.Cliente;
-import cr.ac.ucr.paraiso.ie.c5h060.logiexpress.domain.EstadoPaquete;
-import cr.ac.ucr.paraiso.ie.c5h060.logiexpress.domain.Paquete;
-import cr.ac.ucr.paraiso.ie.c5h060.logiexpress.exception.ClienteNoEncontradoException;
-import cr.ac.ucr.paraiso.ie.c5h060.logiexpress.exception.PesoExcedidoException;
+import com.logiexpress.data.ClienteRepository;
+import com.logiexpress.data.PaqueteRepository;
+import com.logiexpress.domain.Cliente;
+import com.logiexpress.domain.EstadoPaquete;
+import com.logiexpress.domain.Paquete;
+import com.logiexpress.exception.ClienteNoEncontradoException;
+import com.logiexpress.exception.PesoExcedidoException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
