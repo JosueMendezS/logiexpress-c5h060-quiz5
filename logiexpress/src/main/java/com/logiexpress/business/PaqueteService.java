@@ -27,15 +27,13 @@ public class PaqueteService {
 
     @Transactional
     public Paquete registrarPaquete(Long clienteId, String codigoRastreo, String descripcion, Double pesoKg) {
-
         if (pesoKg > PESO_MAXIMO_KG) {
             throw new PesoExcedidoException(
-                    "El peso del paquete (" + pesoKg + " kg) supera el máximo permitido de " + PESO_MAXIMO_KG + " kg");
+                    "El peso del paquete (" + pesoKg + " kg) supera el maximo permitido de " + PESO_MAXIMO_KG + " kg");
         }
 
         Cliente cliente = clienteRepository.findById(clienteId)
-                .orElseThrow(() -> new ClienteNoEncontradoException(
-                        "No existe un cliente con id " + clienteId));
+                .orElseThrow(() -> new ClienteNoEncontradoException("No existe un cliente con id " + clienteId));
 
         Paquete paquete = new Paquete();
         paquete.setCodigoRastreo(codigoRastreo);
@@ -48,27 +46,19 @@ public class PaqueteService {
     }
 
     @Transactional
-    public Paquete actualizarEstado(Long paqueteId, EstadoPaquete nuevoEstado) {
-        Paquete paquete = paqueteRepository.findById(paqueteId)
-                .orElseThrow(() -> new ClienteNoEncontradoException(
-                        "No existe un paquete con id " + paqueteId));
-
-        paquete.setEstado(nuevoEstado);
-        return paqueteRepository.save(paquete);
-    }
-
-    @Transactional
     public void eliminarPaquete(Long paqueteId) {
-        paqueteRepository.deleteById(paqueteId);
+        Paquete paquete = buscarPorId(paqueteId);
+        paqueteRepository.delete(paquete);
     }
 
+    @Transactional(readOnly = true)
     public Page<Paquete> buscarPorEstado(EstadoPaquete estado, Pageable pageable) {
         return paqueteRepository.findByEstado(estado, pageable);
     }
 
+    @Transactional(readOnly = true)
     public Paquete buscarPorId(Long paqueteId) {
         return paqueteRepository.findById(paqueteId)
-                .orElseThrow(() -> new ClienteNoEncontradoException(
-                        "No existe un paquete con id " + paqueteId));
+                .orElseThrow(() -> new ClienteNoEncontradoException("No existe un paquete con id " + paqueteId));
     }
 }
