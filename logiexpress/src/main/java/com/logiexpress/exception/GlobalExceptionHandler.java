@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -22,6 +23,13 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ProblemDetail> manejarClienteNoEncontrado(ClienteNoEncontradoException ex,
             HttpServletRequest request) {
         return construirRespuesta(HttpStatus.NOT_FOUND, "Recurso no encontrado", ex.getMessage(), request);
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<ProblemDetail> manejarCredencialesInvalidas(BadCredentialsException ex,
+            HttpServletRequest request) {
+        return construirRespuesta(HttpStatus.UNAUTHORIZED, "Credenciales invalidas",
+                "Usuario o contrasena incorrectos", request);
     }
 
     private ResponseEntity<ProblemDetail> construirRespuesta(HttpStatus status, String titulo, String detalle,
